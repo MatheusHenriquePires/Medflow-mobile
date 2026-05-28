@@ -1,10 +1,14 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Layout, TopBar } from '../components'
+import { Smartphone } from 'lucide-react'
+import { AppButton, Layout, TopBar } from '../components'
+import { useAuth } from '../contexts/AuthContext'
 
 export function VerifyOTP() {
   const navigate = useNavigate()
+  const { user } = useAuth()
   const [otp, setOtp] = useState('')
+  const [error, setError] = useState('')
 
   const handleOtpClick = (digit: number) => {
     if (otp.length < 6) {
@@ -19,6 +23,8 @@ export function VerifyOTP() {
   const handleVerify = () => {
     if (otp.length === 6) {
       navigate('/home')
+    } else {
+      setError('Digite os 6 números do código para continuar.')
     }
   }
 
@@ -28,10 +34,10 @@ export function VerifyOTP() {
     <Layout showBottomNav={false}>
       <TopBar title="Verificar número" />
       <div className="screen__body screen__body--centered">
-        <div className="verify__icon">📱</div>
+        <div className="verify__icon"><Smartphone size={34} strokeWidth={1.5} /></div>
         <h2>Código enviado por SMS</h2>
         <p className="verify__text">
-          Enviamos um código de 6 dígitos para o número <strong>(86) 9 9999-9999</strong>
+          Enviamos um código de 6 dígitos para o número <strong>{user?.telefone ?? '(86) 9 9999-9999'}</strong>
         </p>
 
         <div className="otp-row" aria-label="Código de verificação">
@@ -53,10 +59,14 @@ export function VerifyOTP() {
         </div>
 
         <p className="verify__text verify__text--small">
-          Não recebeu? <a href="/">Reenviar em 45s</a>
+          Não recebeu?{' '}
+          <button type="button" className="link" onClick={() => setOtp('123456')}>
+            Usar código demo
+          </button>
         </p>
+        {error && <p className="form-error">{error}</p>}
 
-        {/* Numpad for demo */}
+        {}
         <div className="numpad">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((digit) => (
             <button
@@ -86,14 +96,15 @@ export function VerifyOTP() {
       </div>
 
       <div className="screen__footer">
-        <button
-          type="button"
-          className="btn btn--primary"
+        <AppButton
+          variant="primary"
+          size="lg"
+          fullWidth
           onClick={handleVerify}
           disabled={otp.length !== 6}
         >
           Verificar
-        </button>
+        </AppButton>
       </div>
     </Layout>
   )

@@ -4,5 +4,9 @@ export interface UserProfile {
   email: string;
   senha?: string | null;
   role: string;
+  telefone?: string | null;
+  cpf?: string | null;
+  dataNascimento?: string | null;
+  metadata?: Record<string, unknown> | null;
   created_at?: string;
 }

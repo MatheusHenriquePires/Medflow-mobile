@@ -1,13 +1,15 @@
 import { Link, useLocation } from 'react-router-dom'
+import { CalendarDays, Home, Pill, Search, UserRound } from 'lucide-react'
 
 export function BottomNav() {
   const location = useLocation()
 
   const navItems = [
-    { path: '/home', label: 'Início', icon: '🏠' },
-    { path: '/buscar', label: 'Buscar', icon: '🔎' },
-    { path: '/consultas', label: 'Consultas', icon: '📋' },
-    { path: '/perfil', label: 'Perfil', icon: '👤' },
+    { path: '/home', label: 'Início', icon: Home },
+    { path: '/buscar', label: 'Buscar', icon: Search },
+    { path: '/consultas', label: 'Consultas', icon: CalendarDays },
+    { path: '/receitas', label: 'Receitas', icon: Pill },
+    { path: '/perfil', label: 'Perfil', icon: UserRound },
   ]
 
   const isActive = (path: string) => location.pathname === path
@@ -20,8 +22,10 @@ export function BottomNav() {
           to={item.path}
           className={`bottom-nav__item ${isActive(item.path) ? 'bottom-nav__item--active' : ''}`}
         >
-          <span>{item.icon}</span>
-          <span>{item.label}</span>
+          <span className="bottom-nav__icon">
+            <item.icon size={20} strokeWidth={1.5} />
+          </span>
+          <span className="bottom-nav__label">{item.label}</span>
         </Link>
       ))}
     </nav>

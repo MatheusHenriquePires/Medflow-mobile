@@ -1,9 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  color: #0f172a;
-  background: #eef4f6;
+  --primary: #0A6EBD;
+  --primary-light: #E8F4FD;
+  --accent: #00C9A7;
+  --danger: #FF4757;
+  --warning: #FFA502;
+  --bg: #F7F9FC;
+  --surface: #FFFFFF;
+  --text-primary: #0D1B2A;
+  --text-secondary: #6B7C93;
+  --text-muted: #A8B2C1;
+  --border: #E4EAF0;
+  --shadow: 0 2px 16px rgba(10, 110, 189, 0.08);
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text-primary);
+  background: var(--bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -22,6 +34,10 @@ body,
 
 body {
   margin: 0;
+  background:
+    radial-gradient(circle at 22% 18%, rgba(232, 244, 253, 0.92) 0 2px, transparent 2px 18px),
+    linear-gradient(135deg, rgba(10, 110, 189, 0.08), transparent 38%),
+    var(--bg);
 }
 
 button,

@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import './App.css'
 import { AuthProvider, useAuth } from './contexts/AuthContext'
+import { AppDataProvider } from './contexts/AppDataContext'
 import {
   Login,
   Signup,
@@ -23,12 +24,12 @@ function AppRoutes() {
 
   return (
     <Routes>
-      {/* Public Routes */}
+      {}
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/verify-otp" element={<VerifyOTP />} />
 
-      {/* Protected Routes */}
+      {}
       <Route
         path="/home"
         element={
@@ -78,7 +79,7 @@ function AppRoutes() {
         }
       />
 
-      {/* Default Routes */}
+      {}
       <Route path="/" element={<Navigate to={isLoggedIn ? '/home' : '/login'} />} />
     </Routes>
   )
@@ -96,7 +97,9 @@ function App() {
 export default function AppWrapper() {
   return (
     <AuthProvider>
-      <App />
+      <AppDataProvider>
+        <App />
+      </AppDataProvider>
     </AuthProvider>
   )
 }

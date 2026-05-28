@@ -20,12 +20,27 @@ export class CreateAppointmentDto {
   @ApiPropertyOptional()
   @IsOptional()
   @IsString()
+  data_consulta?: string;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsString()
   status?: string;
 
   @ApiPropertyOptional()
   @IsOptional()
   @IsString()
   notes?: string;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsString()
+  observacoes?: string;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsString()
+  meet_link?: string;
 
   @ApiPropertyOptional({ type: 'object', additionalProperties: true })
   @IsOptional()

@@ -21,4 +21,19 @@ export class SignUpDto {
   @IsOptional()
   @IsIn(APP_ROLES)
   role?: string;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsString()
+  telefone?: string;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsString()
+  cpf?: string;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsString()
+  dataNascimento?: string;
 }

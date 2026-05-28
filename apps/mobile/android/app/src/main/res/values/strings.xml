@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Medflow</string>
+    <string name="title_activity_main">Medflow</string>
+    <string name="package_name">br.com.medflow.app</string>
+    <string name="custom_url_scheme">br.com.medflow.app</string>
+</resources>

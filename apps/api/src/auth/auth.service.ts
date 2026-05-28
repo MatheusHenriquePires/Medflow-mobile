@@ -31,6 +31,9 @@ export class AuthService {
       email_confirm: true,
       user_metadata: {
         nome: payload.nome,
+        telefone: payload.telefone,
+        cpf: payload.cpf,
+        dataNascimento: payload.dataNascimento,
         role: payload.role ?? 'PATIENT',
       },
     });
@@ -47,6 +50,14 @@ export class AuthService {
       email: payload.email,
       role: payload.role ?? 'PATIENT',
       senha: null,
+      telefone: payload.telefone,
+      cpf: payload.cpf,
+      dataNascimento: payload.dataNascimento,
+      metadata: {
+        telefone: payload.telefone,
+        cpf: payload.cpf,
+        dataNascimento: payload.dataNascimento,
+      },
     });
 
     return {
