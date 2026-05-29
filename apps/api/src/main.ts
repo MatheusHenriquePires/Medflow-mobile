@@ -13,6 +13,15 @@ async function bootstrap() {
     credentials: true,
   });
 
+  app.getHttpAdapter().get('/', (_req, res) => {
+    res.json({
+      service: 'medflow-api',
+      status: 'ok',
+      api: '/api',
+      docs: '/docs',
+    });
+  });
+
   app.setGlobalPrefix('api');
   app.useGlobalPipes(
     new ValidationPipe({
