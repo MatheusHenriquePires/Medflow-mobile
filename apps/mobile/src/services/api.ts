@@ -1,6 +1,9 @@
 import type { Appointment, Doctor, User } from '../types'
 
-const API_URL = import.meta.env.VITE_API_URL ?? 'http:
+const API_URL = (import.meta.env.VITE_API_URL ?? 'https://medflow-mobile.fly.dev/api').replace(
+  /\/$/,
+  '',
+)
 
 interface ApiEnvelope<T> {
   data: T
