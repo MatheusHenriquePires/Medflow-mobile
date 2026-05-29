@@ -1,0 +1,14 @@
+**/node_modules
+**/dist
+**/.turbo
+**/coverage
+**/.cache
+**/.gradle
+**/android/build
+**/android/.gradle
+apps/mobile/android-sdk
+artifacts
+.git
+.idea
+.vscode
+*.log
